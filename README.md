@@ -23,6 +23,7 @@ map_str = """\
 +--------+
 """
 
+
 The map is always rectangular. We refer to positions in the map by a pair of numbers (row, col) which correspond
 to the row and column number of the position. Row numbers start from 0 for the first (topmost) line, 1 for the 
 second line, and so on. The column numbers start from 0 for the first (leftmost) position (character) in the line,
