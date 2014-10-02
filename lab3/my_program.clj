@@ -39,6 +39,18 @@
     )
 )
 
+(defn member? [a ls]
+    (cond
+        (empty? ls) false
+        (= a(first ls)) true
+        :else (recur a (rest ls))))
+
+(defn union [set1 set2]
+    (cond
+        (empty? set1) set2
+        (member? (first set1) set2) (recur(rest set1) set2)
+        :else (recur(rest set1) (cons(first set1) set2))))
+
 (defn my-last [l]
     (if (= (rest l) ())
         (first l)
