@@ -10,7 +10,20 @@ def evaluate(expression, bindings):
 		if len(expression) == 3:
 			if expression[0] in bindings.keys():
 				return (bindings[expression[0]](evaluate(expression[1],b), evaluate(expression[2],b)))
-						
+def evaluate(expression, bindings):
+    if isinstance(expression, int):
+        return expression
+   
+    if isinstance(expression, str):
+        for key, value in bindings.items():
+            return bindings[expression]
+       
+    if isinstance(expression, list):
+        func = bindings[expression[0]]
+        factor1 = evaluate(expression[1], bindings)
+        factor2 = evaluate(expression[2], bindings)
+        return func(factor1, factor2)
+        
 bindings = {}
 expression = 12
 print(evaluate(expression, bindings))

@@ -1,7 +1,14 @@
 likes(bob, chocolate).
-
+likes(rita, eat).
 eats(Person, Thing) :- likes(Person, Thing).
 eats(Person, Thing) :- hungry(Person), edible(Thing).
+
+edge(a,b).
+edge(b,c).
+edge(d,b).
+edge(d,e).
+connected(Source, Destination) :- edge(Source, Destination).
+connected(Source, Destination) :- edge(Source, Z),connected(Z, Destination).
 
 
 reflection(point(X,Y), point(Y,X)).

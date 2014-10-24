@@ -9,6 +9,15 @@
     )
 )
 
+(defn col-sum[l]
+    (map + (first l) (last l))
+)
+
+(defn row-sum[l]
+    (list (reduce + (first l)) (reduce + (last l)))
+)
+
+
 (defn get-counts[lis]
     (map count lis)
 )
