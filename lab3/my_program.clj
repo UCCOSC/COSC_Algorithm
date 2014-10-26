@@ -17,6 +17,12 @@
     (list (reduce + (first l)) (reduce + (last l)))
 )
 
+(defn append-row[l1 l2]
+    (if (empty? l1)
+        (cons l2 l1)
+        (cons (first l1) (append-row (rest l1) l2)))
+)
+
 
 (defn get-counts[lis]
     (map count lis)

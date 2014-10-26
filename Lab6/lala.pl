@@ -10,6 +10,40 @@ edge(d,e).
 connected(Source, Destination) :- edge(Source, Destination).
 connected(Source, Destination) :- edge(Source, Z),connected(Z, Destination).
 
+goes_through(Path, Node) :- Path = [H|T],(H=Node;goes_through(T,Node)).
+goes_through(Path, Node) :- Path = [Node].
+
+connects([Source|X], Source, Destination):- X = [T|D] ,connects(X, T, Destination), edge(Source, T).
+connects([T,D], Source, Destination) :- T = Source, D =  Destination, edge(Source, Destination).
+
+crosses(Path1, Path2):- Path1 = [H|T], (goes_through(Path2, H); crosses(T, Path2)).
+crosses(Path1, Path2):- Path1 = [H], goes_through(Path2, H).
+
+person(john).
+person(jane).
+person(craig).
+person(ann).
+person(alice).
+person(sean).
+
+chats(john, jane).
+chats(john, craig).
+chats(ann, alice).
+
+enjoys(jane, ice-creame).
+enjoys(sean, reading).
+
+friends(F1, F2) :- chats(F1, F2).
+friends(F1, F2) :- chats(F2, F1).
+
+connecteds(F1, F2) :- friends(F1, F2).
+connecteds(F1, F2) :- friends(F1, F), connecteds(F, F2).
+
+disconnected(P1,X) :- not(connecteds(P1,X)).
+
+
+
+
 
 reflection(point(X,Y), point(Y,X)).
 
