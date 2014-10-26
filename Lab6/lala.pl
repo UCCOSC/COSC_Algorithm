@@ -37,7 +37,7 @@ friends(F1, F2) :- chats(F1, F2).
 friends(F1, F2) :- chats(F2, F1).
 
 connecteds(F1, F2) :- friends(F1, F2).
-connecteds(F1, F2) :- friends(F1, F), connecteds(F, F2).
+connecteds(F1, F2) :- friends(F1, F), friends(F, F2).
 
 disconnected(P1,X) :- not(connecteds(P1,X)).
 
