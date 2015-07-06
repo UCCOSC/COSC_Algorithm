@@ -1,11 +1,8 @@
-COSC367
+Computational intelligence programs 
 =======
 
 Computational intelligence 
 
-
-Introduction
-In this searcing assignment you apply the search techniques you have learnt in the course to routing problems.
 
 You have a number driverless cabs (agents) scattered across a city. The objective is, to when a customer 
 calls, navigate an agent that is closest to the customer, from its current position to the location of 
